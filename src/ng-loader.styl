@@ -1,0 +1,36 @@
+.loader-cont
+    position absolute
+    left 0
+    width 100%
+    z-index 9999
+
+    .loader-progress
+        position absolute
+        left 0
+        top 0
+        width 0
+        animation loader-expand 1s ease-in-out
+        animation-fill-mode forwards
+
+        &.loader-collapse
+            animation loader-collapse 0.3s ease-in-out
+
+        .progress-bar
+            width 100%
+
+@keyframes loader-expand
+    from
+        width 0
+
+    to
+        width 50%
+
+@keyframes loader-collapse
+    0%
+        width 50%
+
+    99.9%
+        width 100%
+
+    100%
+        width 0
