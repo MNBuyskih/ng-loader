@@ -15,8 +15,8 @@ angular.module('MyApp', ['ngLoader'])
 ```html
 <head>
     ...
-    <link rel="stylesheet" href="bower_components/ng-loader/dest/css/ng-loader.min.css">
-    <script src="bower_components/ng-loader/dest/js/ng-loader.min.js"></script>
+    <link rel="stylesheet" href="bower_components/ng-loader/dest/ng-loader.min.css">
+    <script src="bower_components/ng-loader/dest/ng-loader.min.js"></script>
     ...
 </head>
 ```
