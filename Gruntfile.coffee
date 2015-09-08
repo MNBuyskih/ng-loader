@@ -5,10 +5,15 @@ module.exports = (grunt) ->
                 src: 'src/ng-loader.coffee'
                 dest: "dest/ng-loader.js"
 
+        ngAnnotate:
+            index:
+                files:
+                    "dest/ng-loader.js": "dest/ng-loader.js"
+
         uglify:
             index:
-                src: "dest/ng-loader.js"
-                dest: "dest/ng-loader.min.js"
+                files:
+                    "dest/ng-loader.min.js": "dest/ng-loader.js"
 
         stylus:
             index:
@@ -17,7 +22,7 @@ module.exports = (grunt) ->
 
         postcss:
             options:
-                processors: [require('autoprefixer-core')({browsers: [
+                processors: [require('autoprefixer')({browsers: [
                     'firefox >= 35'
                     'chrome >= 40'
                     'opera >= 27'
@@ -32,7 +37,8 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-postcss'
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-uglify'
+    grunt.loadNpmTasks 'grunt-ng-annotate'
 
-    grunt.registerTask 'js', ['coffee', 'uglify']
+    grunt.registerTask 'js', ['coffee', 'ngAnnotate', 'uglify']
     grunt.registerTask 'css', ['stylus', 'postcss']
     grunt.registerTask 'default', ['js', 'css']

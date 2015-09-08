@@ -3,7 +3,7 @@
     function _Class($httpProvider) {
       var $this;
       $this = this;
-      $httpProvider.interceptors.push(function($q) {
+      $httpProvider.interceptors.push(["$q", function($q) {
         return {
           request: function(config) {
             $this.ajaxCount++;
@@ -22,8 +22,9 @@
             return $q.reject(config);
           }
         };
-      });
+      }]);
     }
+    _Class.$inject = ["$httpProvider"];
 
     _Class.prototype.ajaxCount = 0;
 
@@ -38,9 +39,9 @@
       template: '<div class="loader-cont"><div class="loader-progress progress progress-xs"><div class="progress-bar progress-bar-success"></div></div></div>',
       restrict: 'E',
       replace: true,
-      controller: function($ngLoader, $scope) {
+      controller: ["$ngLoader", "$scope", function($ngLoader, $scope) {
         return $scope.loader = $ngLoader;
-      }
+      }]
     };
   }).directive('loaderProgress', function() {
     return {
