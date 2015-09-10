@@ -1,6 +1,6 @@
 {
   "name": "ng-loader",
-  "version": "0.0.1",
+  "version": "0.0.21",
   "description": "Simplest angular loader. Required bootstrap`s progress bar.",
   "repository": {
     "type": "git",
